@@ -1,0 +1,383 @@
+items:
+  - id: ASPECT_OF_THE_END
+    material: DIAMOND_SWORD
+    rarity: RARE
+    abilities:
+      - INSTANT_TRANSMISSION
+    default_statistics:
+      damage: 100
+      strength: 100
+    components:
+      - id: ABILITY
+        abilities:
+          - INSTANT_TRANSMISSION
+      - id: STANDARD_ITEM
+        standard_item_type: SWORD
+      - id: GEMSTONE
+        gemstone_slots:
+          - gemstone: SAPPHIRE
+            coins: 50000
+      - id: SELLABLE
+        value: 56000
+      - id: MUSEUM
+        museum_category: WEAPONS
+        game_stage: INTERMEDIATE
+        donation_xp: 4
+        parent:
+          ASPECT_OF_THE_END: ASPECT_OF_THE_VOID
+      - id: DEFAULT_CRAFTABLE
+        default-craftable: false
+        recipes:
+          - type: SHAPED
+            recipe-type: COMBAT
+            pattern:
+              - A
+              - A
+              - B
+            ingredients:
+              A:
+                type: ENCHANTED_EYE_OF_ENDER
+                amount: 16
+              B:
+                type: ENCHANTED_DIAMOND
+                amount: 1
+            result:
+              type: ASPECT_OF_THE_END
+              amount: 1
+
+  - id: ASPECT_OF_THE_JERRY
+    material: WOODEN_SWORD
+    rarity: COMMON
+    default_statistics:
+      damage: 1
+    components:
+      - id: ABILITY
+        abilities:
+          - PARLEY
+      - id: STANDARD_ITEM
+        standard_item_type: SWORD
+      - id: DEFAULT_CRAFTABLE
+        recipes:
+          - type: SHAPED
+            pattern:
+              - A
+              - A
+              - B
+            ingredients:
+              A:
+                type: MOVE_JERRY
+                amount: 1
+              B:
+                type: STICK
+                amount: 1
+            result:
+              type: ASPECT_OF_THE_JERRY
+              amount: 1
+
+  - id: ASPECT_OF_THE_DRAGON
+    material: DIAMOND_SWORD
+    rarity: LEGENDARY
+    abilities:
+      - DRAGON_RAGE
+    default_statistics:
+      damage: 225
+      strength: 100
+      ability_damage: 12000
+    components:
+      - id: ABILITY
+        abilities:
+          - DRAGON_RAGE
+      - id: SELLABLE
+        value: 100000
+      - id: STANDARD_ITEM
+        standard_item_type: SWORD
+      - id: GEMSTONE
+        gemstone_slots:
+          - gemstone: JASPER
+            coins: 50000
+            items:
+              - FINE_JASPER_GEM:20
+      - id: UPGRADES
+        levels:
+          - level: 1
+            requirements:
+              - type: ESSENCE
+                essence: DRAGON
+                amount: 50
+          - level: 2
+            requirements:
+              - type: ESSENCE
+                essence: DRAGON
+                amount: 100
+          - level: 3
+            requirements:
+              - type: ESSENCE
+                essence: DRAGON
+                amount: 200
+          - level: 4
+            requirements:
+              - type: ESSENCE
+                essence: DRAGON
+                amount: 300
+          - level: 5
+            requirements:
+              - type: ESSENCE
+                essence: DRAGON
+                amount: 400
+      - id: MUSEUM
+        museum_category: WEAPONS
+        game_stage: INTERMEDIATE
+        donation_xp: 5
+      - id: CUSTOM_DISPLAY_NAME
+        display_name: "Aspect of the Dragons"
+
+  - id: END_SWORD
+    material: IRON_SWORD
+    rarity: UNCOMMON
+    lore:
+      - "Deals §a+100% §7damage to Ender"
+      - "Dragons, Endermites, and Endermen."
+    default_statistics:
+      damage: 35
+    components:
+      - id: STANDARD_ITEM
+        standard_item_type: SWORD
+
+  - id: ASPECT_OF_THE_VOID
+    material: DIAMOND_SHOVEL
+    rarity: EPIC
+    default_statistics:
+      damage: 120
+      strength: 100
+    abilities:
+      - INSTANT_TRANSMISSION
+      - ETHER_TRANSMISSION
+    components:
+      - id: ABILITY
+        abilities:
+        - INSTANT_TRANSMISSION
+        - ETHER_TRANSMISSION
+      - id: STANDARD_ITEM
+        standard_item_type: SWORD
+      - id: GEMSTONE
+        gemstone_slots:
+          - gemstone: SAPPHIRE
+            coins: 50000
+      - id: SELLABLE
+        value: 56000
+      - id: CUSTOM_DISPLAY_NAME
+        display_name: "Aspect of the Void"
+      - id: MUSEUM
+        museum_category: WEAPONS
+        game_stage: EXPERT
+        donation_xp: 6
+
+  - id: FANCY_SWORD
+    material: GOLDEN_SWORD
+    rarity: UNCOMMON
+    default_statistics:
+      damage: 50
+      speed: 40
+    components:
+      - id: STANDARD_ITEM
+        standard_item_type: SWORD
+      - id: SELLABLE
+        value: 50
+
+  - id: FLINT_ARROW
+    material: ARROW
+    rarity: COMMON
+    default_statistics:
+      damage: 1
+    components:
+      - id: ARROW
+
+  - id: HUNTER_KNIFE
+    material: IRON_SWORD
+    rarity: UNCOMMON
+    default_statistics:
+      damage: 50
+    components:
+      - id: STANDARD_ITEM
+        standard_item_type: SWORD
+      - id: DEFAULT_SOULBOUND
+        coop_allowed: false
+
+  - id: MERCENARY_AXE
+    material: IRON_AXE
+    rarity: UNCOMMON
+    default_statistics:
+      damage: 70
+      strength: 20
+    components:
+      - id: STANDARD_ITEM
+        standard_item_type: SWORD
+
+  - id: PRISMARINE_BLADE
+    material: PRISMARINE_SHARD
+    rarity: UNCOMMON
+    default_statistics:
+      damage: 50
+      strength: 25
+    components:
+      - id: STANDARD_ITEM
+        standard_item_type: SWORD
+      - id: SELLABLE
+        value: 160
+      - id: DEFAULT_CRAFTABLE
+        default-craftable: false
+        recipes:
+          - type: SHAPED
+            recipe-type: FISHING
+            pattern:
+              - A
+              - A
+              - B
+            ingredients:
+              A:
+                type: PRISMARINE_SHARD
+                amount: 32
+              B:
+                type: STICK
+                amount: 1
+            result:
+              type: PRISMARINE_BLADE
+              amount: 1
+
+  - id: ROGUE_SWORD
+    material: GOLDEN_SWORD
+    rarity: COMMON
+    default_statistics:
+      damage: 20
+    components:
+      - id: ABILITY
+        abilities:
+          - SPEED_BOOST
+      - id: STANDARD_ITEM
+        standard_item_type: SWORD
+      - id: TRACKED_UNIQUE
+
+  - id: SILVER_FANG
+    material: IRON_SWORD
+    rarity: UNCOMMON
+    default_statistics:
+      damage: 100
+    components:
+      - id: STANDARD_ITEM
+        standard_item_type: SWORD
+      - id: SELLABLE
+        value: 2000
+      - id: DEFAULT_CRAFTABLE
+        default-craftable: false
+        recipes:
+          - type: SHAPED
+            recipe-type: COMBAT
+            pattern:
+              - OAO
+              - AAA
+              - OAO
+            ingredients:
+              A:
+                type: ENCHANTED_GHAST_TEAR
+                amount: 5
+              O:
+                type: AIR
+                amount: 1
+            result:
+              type: SILVER_FANG
+              amount: 1
+
+  - id: SPIDER_SWORD
+    material: IRON_SWORD
+    rarity: UNCOMMON
+    lore:
+      - "Deals §a+100% §7damage to Silverfish,"
+      - "Spiders, and Cave Spiders."
+      - ""
+      - "§4This item is Arachnal Ж!"
+    default_statistics:
+      damage: 30
+    components:
+      - id: STANDARD_ITEM
+        standard_item_type: SWORD
+
+  - id: SQUIRE_SWORD
+    material: IRON_SWORD
+    rarity: UNCOMMON
+    default_statistics:
+      damage: 50
+      strength: 10
+    components:
+      - id: STANDARD_ITEM
+        standard_item_type: SWORD
+
+  - id: UNDEAD_SWORD
+    material: IRON_SWORD
+    rarity: UNCOMMON
+    lore:
+      - "Deals §a+100% §7damage to Zombies,"
+      - "Skeletons, Zombie Pigmen, and"
+      - "Withers."
+    default_statistics:
+      damage: 30
+    components:
+      - id: STANDARD_ITEM
+        standard_item_type: SWORD
+
+  - id: HYPERION
+    material: IRON_SWORD
+    rarity: LEGENDARY
+    lore:
+      - "Deals §c+50% §7damage to §8☠ Wither §7mobs."
+      - "Grants §c+1 ❁ Damage §7and §a+2 §b✎"
+      - "§bIntelligence §7per §cCatacombs §7level."
+    default_statistics:
+      health: 20
+      damage: 100
+      speed: 50
+      defense: 30
+    components:
+      - id: ABILITY
+        abilities:
+          - WITHER_IMPACT
+      - id: GEMSTONE
+        gemstone_slots:
+          - gemstone: SAPPHIRE
+            coins: 250000
+            items:
+              - FLAWLESS_SAPPHIRE_GEM:4
+          - gemstone: COMBAT
+            coins: 250000
+            items:
+              - FLAWLESS_JASPER_GEM:1
+              - FLAWLESS_SAPPHIRE_GEM:1
+              - FLAWLESS_RUBY_GEM:1
+              - FLAWLESS_AMETHYST_GEM:1
+      - id: MUSEUM
+        museum_category: WEAPONS
+      - id: TRACKED_UNIQUE
+      - id: NOT_FINISHED_YET
+      - id: STANDARD_ITEM
+        standard_item_type: SWORD
+      - id: DEFAULT_CRAFTABLE
+        recipes:
+          - type: SHAPED
+            recipe-type: SLAYER
+            pattern:
+              - ABA
+            ingredients:
+              A:
+                type: REVENANT_FLESH
+                amount: 32
+              B:
+                type: ZOMBIE_TALISMAN
+                amount: 1
+            result:
+              type: ZOMBIE_RING
+              amount: 1
+            requirements:
+              level:
+                left: "%player.SKYBLOCK_LEVEL%"
+                operation: ">="
+                right: "10"
+                fail-message: "§cLevel Requirement\n§7You must be at least §eLevel 10 §7to craft this item!"

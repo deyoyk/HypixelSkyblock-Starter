@@ -1,0 +1,71 @@
+items:
+  - id: CLAY_BALL
+    rarity: COMMON
+    components:
+      - id: SELLABLE
+        value: 3.0
+  - id: COD
+    rarity: COMMON
+    components:
+      - id: SELLABLE
+        value: 6.0
+  - id: INK_SAC
+    rarity: COMMON
+    components:
+      - id: SELLABLE
+        value: 2.0
+      - id: BREWING_INGREDIENT
+        brewing_time_seconds: 20
+        effect: INK_SAC_BREW
+        effect_duration: 0
+        effect_amplifier: 0
+        alchemy_xp: 5
+  - id: LILY_PAD
+    rarity: COMMON
+    components:
+      - id: PLACEABLE
+      - id: SELLABLE
+        value: 10.0
+  - id: PRISMARINE_CRYSTALS
+    rarity: COMMON
+    components:
+      - id: SELLABLE
+        value: 5.0
+  - id: PRISMARINE_SHARD
+    rarity: COMMON
+    components:
+      - id: SELLABLE
+        value: 5.0
+  - id: PUFFERFISH
+    rarity: COMMON
+    components:
+      - id: SELLABLE
+        value: 15.0
+      - id: BREWING_INGREDIENT
+        brewing_time_seconds: 20
+        effect: WATER_BREATHING
+        effect_duration: 180
+        effect_amplifier: 0
+        alchemy_xp: 12
+  - id: SALMON
+    rarity: COMMON
+    components:
+      - id: SELLABLE
+        value: 10.0
+      - id: BREWING_INGREDIENT
+        brewing_time_seconds: 20
+        effect: SALMON_BREW
+        effect_duration: 0
+        effect_amplifier: 0
+        alchemy_xp: 20
+  - id: SPONGE
+    rarity: COMMON
+    components:
+      - id: PLACEABLE
+      - id: SELLABLE
+        value: 50.0
+  - id: TROPICAL_FISH
+    rarity: COMMON
+    components:
+      - id: SELLABLE
+        value: 20.0

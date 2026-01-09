@@ -1,0 +1,1489 @@
+name: Mining
+displayIcon: STONE_PICKAXE
+collections:
+- itemType: COBBLESTONE
+  rewards:
+  - amount: 50
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: COBBLESTONE_MINION
+  - amount: 100
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 250
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: AUTO_SMELTER
+  - amount: 1000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_COBBLESTONE
+  - amount: 2500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: COMPACTOR
+  - amount: 5000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 10000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: HASTE_RING
+  - amount: 25000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: HYPER_FURNACE
+  - amount: 40000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: HASTE_ARTIFACT
+  - amount: 70000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: SUPER_COMPACTOR_3000
+- itemType: COAL
+  rewards:
+  - amount: 50
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: COAL_MINION
+  - amount: 100
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 250
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 1000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_COAL
+  - amount: 2500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_CHARCOAL
+  - amount: 5000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 10000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_COAL_BLOCK
+  - amount: 25000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_LAVA_BUCKET
+  - amount: 50000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 100000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+- itemType: GOLD_INGOT
+  rewards:
+  - amount: 50
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: GOLD_MINION
+  - amount: 100
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 250
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: CUSTOM_AWARD
+      data:
+        customAward: LOOTING_DISCOUNT
+  - amount: 500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 1000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_GOLD_INGOT
+  - amount: 2500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 5000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: CUSTOM_AWARD
+      data:
+        customAward: SCAVENGER_DISCOUNT
+  - amount: 10000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_GOLD_BLOCK
+  - amount: 25000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: CUSTOM_AWARD
+      data:
+        customAward: FORTUNE_DISCOUNT
+  - amount: 500000
+    rewards:
+      - type: XP
+        data:
+          xp: 4
+- itemType: LAPIS_LAZULI
+  rewards:
+  - amount: 250
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: LAPIS_MINION
+  - amount: 500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 1000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: CUSTOM_AWARD
+      data:
+        customAward: EXPERIENCE_DISCOUNT
+  - amount: 2000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_LAPIS_LAZULI
+  - amount: 10000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 25000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 50000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_LAPIS_LAZULI_BLOCK
+  - amount: 100000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 150000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 250000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+- itemType: GRAVEL
+  rewards:
+  - amount: 50
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: GRAVEL_MINION
+  - amount: 100
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 250
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 1000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: CUSTOM_AWARD
+      data:
+        customAward: SHARPNESS_DISCOUNT
+  - amount: 2500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_FLINT
+  - amount: 5000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: CUSTOM_AWARD
+      data:
+        customAward: FIRST_STRIKE_DISCOUNT
+  - amount: 10000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 15000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 50000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+- itemType: DIAMOND
+  rewards:
+  - amount: 50
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: DIAMOND_MINION
+  - amount: 100
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: CUSTOM_AWARD
+      data:
+        customAward: EXECUTE_DISCOUNT
+  - amount: 250
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 1000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_DIAMOND
+  - amount: 2500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: CUSTOM_AWARD
+      data:
+        customAward: CRITICAL_DISCOUNT
+  - amount: 5000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: DIAMOND_SPREADING
+  - amount: 10000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 25000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_DIAMOND_BLOCK
+  - amount: 50000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+- itemType: EMERALD
+  rewards:
+  - amount: 50
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: EMERALD_MINION
+  - amount: 100
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 250
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 1000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_EMERALD
+  - amount: 5000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: EMERALD_RING
+  - amount: 15000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 30000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_EMERALD_BLOCK
+  - amount: 50000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 100000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+- itemType: END_STONE
+  rewards:
+  - amount: 50
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: END_STONE_MINION
+  - amount: 100
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 250
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 1000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 2500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 5000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_END_STONE
+  - amount: 10000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 15000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 25000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 50000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+- itemType: FINE_JASPER_GEM
+  rewards:
+  - amount: 100
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 250
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FLAWED_RUBY_GEM
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FLAWED_JADE_GEM
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FLAWED_SAPPHIRE_GEM
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FLAWED_AMETHYST_GEM
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FLAWED_AMBER_GEM
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FLAWED_TOPAZ_GEM
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FLAWED_JASPER_GEM
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FLAWED_OPAL_GEM
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FLAWED_ONYX_GEM
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FLAWED_CITRINE_GEM
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FLAWED_AQUAMARINE_GEM
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FLAWED_PERIDOT_GEM
+  - amount: 1000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 2500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 5000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FINE_RUBY_GEM
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FINE_JADE_GEM
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FINE_SAPPHIRE_GEM
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FINE_AMETHYST_GEM
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FINE_AMBER_GEM
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FINE_TOPAZ_GEM
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FINE_JASPER_GEM
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FINE_OPAL_GEM
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FINE_ONYX_GEM
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FINE_CITRINE_GEM
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FINE_AQUAMARINE_GEM
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FINE_PERIDOT_GEM
+  - amount: 25000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 100000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 250000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 500000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FLAWLESS_RUBY_GEM
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FLAWLESS_JADE_GEM
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FLAWLESS_SAPPHIRE_GEM
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FLAWLESS_AMETHYST_GEM
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FLAWLESS_AMBER_GEM
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FLAWLESS_TOPAZ_GEM
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FLAWLESS_JASPER_GEM
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FLAWLESS_OPAL_GEM
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FLAWLESS_ONYX_GEM
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FLAWLESS_CITRINE_GEM
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FLAWLESS_AQUAMARINE_GEM
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FLAWLESS_PERIDOT_GEM
+  - amount: 1000000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 2000000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+- itemType: GLOWSTONE_DUST
+  rewards:
+  - amount: 50
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: GLOWSTONE_MINION
+  - amount: 100
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 1000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_GLOWSTONE_DUST
+  - amount: 2500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 5000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_GLOWSTONE
+  - amount: 10000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_REDSTONE_LAMP
+  - amount: 25000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+- itemType: HARD_STONE
+  rewards:
+  - amount: 50
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 1000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 5000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_HARD_STONE
+  - amount: 50000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 150000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 300000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: CONCENTRATED_STONE
+  - amount: 1000000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+- itemType: ICE
+  rewards:
+  - amount: 50
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ICE_MINION
+  - amount: 100
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 250
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_ICE
+  - amount: 1000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 5000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 10000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_PACKED_ICE
+  - amount: 50000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 100000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 250000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 500000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+- itemType: IRON_INGOT
+  rewards:
+  - amount: 50
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: IRON_MINION
+  - amount: 100
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: MINER_OUTFIT_HELMET
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: MINER_OUTFIT_CHESTPLATE
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: MINER_OUTFIT_LEGGINGS
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: MINER_OUTFIT_BOOTS
+  - amount: 250
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: CUSTOM_AWARD
+      data:
+        customAward: PROTECTION_DISCOUNT
+  - amount: 1000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_IRON_INGOT
+  - amount: 2500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: BUDGET_HOPPER
+  - amount: 5000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 10000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_IRON_BLOCK
+  - amount: 25000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 50000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_HOPPER
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: PERSONAL_DELETOR_4000
+  - amount: 100000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: PERSONAL_DELETOR_5000
+  - amount: 200000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: PERSONAL_DELETOR_6000
+  - amount: 400000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: PERSONAL_DELETOR_7000
+- itemType: MITHRIL
+  rewards:
+  - amount: 50
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: MITHRIL_MINION
+  - amount: 250
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 1000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_MITHRIL
+  - amount: 2500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 5000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 10000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 250000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 500000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 1000000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+- itemType: MYCELIUM
+  rewards:
+  - amount: 50
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 750
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_MYCELIUM
+  - amount: 1000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 2500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 10000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 15000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_MYCELIUM_CUBE
+  - amount: 25000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 50000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 100000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+- itemType: QUARTZ
+  rewards:
+  - amount: 50
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: QUARTZ_MINION
+  - amount: 100
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 250
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 1000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_QUARTZ
+  - amount: 2500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 5000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_QUARTZ_BLOCK
+  - amount: 10000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 25000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 50000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+- itemType: NETHERRACK
+  rewards:
+  - amount: 50
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 250
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 1000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_NETHERRACK
+  - amount: 5000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+- itemType: OBSIDIAN
+  rewards:
+  - amount: 50
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: OBSIDIAN_MINION
+  - amount: 100
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: CUSTOM_AWARD
+      data:
+        customAward: LETHALITY_DISCOUNT
+  - amount: 250
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 1000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_OBSIDIAN
+  - amount: 2500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 5000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 10000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 25000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 50000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 100000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+- itemType: RED_SAND
+  rewards:
+  - amount: 50
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_RED_SAND
+  - amount: 2500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 10000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_RED_SAND_CUBE
+  - amount: 15000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 25000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 50000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 100000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: EVERBURNING_FLAME
+- itemType: REDSTONE
+  rewards:
+  - amount: 100
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: REDSTONE_MINION
+  - amount: 250
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: CUSTOM_AWARD
+      data:
+        customAward: ACCESSORY_BAG
+  - amount: 750
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: CUSTOM_AWARD
+      data:
+        customAward: EFFICIENCY_DISCOUNT
+  - amount: 1500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_REDSTONE
+  - amount: 3000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 5000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: CUSTOM_AWARD
+      data:
+        customAward: ACCESSORY_BAG_UPGRADE_1
+  - amount: 10000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 25000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_REDSTONE_BLOCK
+  - amount: 50000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: CUSTOM_AWARD
+      data:
+        customAward: ACCESSORY_BAG_UPGRADE_2
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: PERSONAL_COMPACTOR_4000
+  - amount: 200000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: CUSTOM_AWARD
+      data:
+        customAward: ACCESSORY_BAG_UPGRADE_3
+  - amount: 400000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: CUSTOM_AWARD
+      data:
+        customAward: ACCESSORY_BAG_UPGRADE_4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: PERSONAL_COMPACTOR_5000
+  - amount: 600000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: CUSTOM_AWARD
+      data:
+        customAward: ACCESSORY_BAG_UPGRADE_5
+  - amount: 800000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: CUSTOM_AWARD
+      data:
+        customAward: ACCESSORY_BAG_UPGRADE_6
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: PERSONAL_COMPACTOR_6000
+  - amount: 1000000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: CUSTOM_AWARD
+      data:
+        customAward: ACCESSORY_BAG_UPGRADE_7
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: PERSONAL_COMPACTOR_7000
+  - amount: 1200000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: CUSTOM_AWARD
+      data:
+        customAward: ACCESSORY_BAG_UPGRADE_8
+  - amount: 1400000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: CUSTOM_AWARD
+      data:
+        customAward: ACCESSORY_BAG_UPGRADE_9
+- itemType: SAND
+  rewards:
+  - amount: 50
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: SAND_MINION
+  - amount: 100
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 250
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 1000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_SAND
+  - amount: 2500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 5000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+- itemType: SULPHUR
+  rewards:
+  - amount: 200
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 1000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_SULPHUR
+  - amount: 2500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 5000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 10000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 15000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_SULPHUR_CUBE
+  - amount: 25000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 50000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 100000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
