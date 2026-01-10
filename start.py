@@ -27,8 +27,8 @@ class ServiceType(Enum):
 
 
 ALL_SERVER_TYPES = [
-    (0, "SKYBLOCK_HUB"),
-    (0, "SKYBLOCK_ISLAND"),
+    (1, "SKYBLOCK_HUB"),
+    (1, "SKYBLOCK_ISLAND"),
     (0, "SKYBLOCK_SPIDERS_DEN"),
     (0, "SKYBLOCK_THE_END"),
     (0, "SKYBLOCK_CRIMSON_ISLE"),
@@ -43,7 +43,7 @@ ALL_SERVER_TYPES = [
     (0, "SKYBLOCK_JERRYS_WORKSHOP"),
     (0, "SKYBLOCK_BACKWATER_BAYOU"),
     (0, "SKYBLOCK_GALATEA"),
-    (1, "PROTOTYPE_LOBBY"),
+    (3, "PROTOTYPE_LOBBY"),
     (0, "BEDWARS_LOBBY"),
     (0, "BEDWARS_GAME"),
     (0, "BEDWARS_CONFIGURATOR"),
@@ -302,36 +302,38 @@ class ServiceStarter:
 
     def start_servers(self):
         for enabled, server in ALL_SERVER_TYPES:
-            if server == "PROTOTYPE_LOBBY" and enabled == 1:
-                core = os.path.join(self.gameserver_dir, "HypixelCore.jar")
-                if not os.path.isfile(core):
-                    logging.warning(f"HypixelCore.jar missing for {server}")
-                    continue
-                log = open(os.path.join(self.logs_dir, f"{server}.log"), "a")
-                p = subprocess.Popen(
-                    ["java", "-Xms1G", "-Xmx2G", "-jar", "HypixelCore.jar", server],
-                    cwd=self.gameserver_dir,
-                    stdout=log,
-                    stderr=subprocess.STDOUT,
-                )
-                self.proc_mgr.add(p, server)
-                time.sleep(5)  
+            for i in range(enabled):
+                if server == "PROTOTYPE_LOBBY":
+                    core = os.path.join(self.gameserver_dir, "HypixelCore.jar")
+                    if not os.path.isfile(core):
+                        logging.warning(f"HypixelCore.jar missing for {server}")
+                        continue
+                    log = open(os.path.join(self.logs_dir, f"{server}_{i}.log"), "a")
+                    p = subprocess.Popen(
+                        ["java", "-Xms1G", "-Xmx2G", "-jar", "HypixelCore.jar", server],
+                        cwd=self.gameserver_dir,
+                        stdout=log,
+                        stderr=subprocess.STDOUT,
+                    )
+                    self.proc_mgr.add(p, f"{server}_{i}")
+                    time.sleep(5)  
         
         for enabled, server in ALL_SERVER_TYPES:
-            if server != "PROTOTYPE_LOBBY" and enabled == 1:
-                core = os.path.join(self.gameserver_dir, "HypixelCore.jar")
-                if not os.path.isfile(core):
-                    logging.warning(f"HypixelCore.jar missing for {server}")
-                    continue
-                log = open(os.path.join(self.logs_dir, f"{server}.log"), "a")
-                p = subprocess.Popen(
-                    ["java", "-Xms1G", "-Xmx2G", "-jar", "HypixelCore.jar", server],
-                    cwd=self.gameserver_dir,
-                    stdout=log,
-                    stderr=subprocess.STDOUT,
-                )
-                self.proc_mgr.add(p, server)
-                time.sleep(5)  
+            for i in range(enabled):
+                if server != "PROTOTYPE_LOBBY":
+                    core = os.path.join(self.gameserver_dir, "HypixelCore.jar")
+                    if not os.path.isfile(core):
+                        logging.warning(f"HypixelCore.jar missing for {server}")
+                        continue
+                    log = open(os.path.join(self.logs_dir, f"{server}_{i}.log"), "a")
+                    p = subprocess.Popen(
+                        ["java", "-Xms1G", "-Xmx2G", "-jar", "HypixelCore.jar", server],
+                        cwd=self.gameserver_dir,
+                        stdout=log,
+                        stderr=subprocess.STDOUT,
+                    )
+                    self.proc_mgr.add(p, f"{server}_{i}")
+                    time.sleep(5)  
 
 
 def setup_logging():
