@@ -27,8 +27,8 @@ class ServiceType(Enum):
 
 
 ALL_SERVER_TYPES = [
-    (1, "SKYBLOCK_HUB"),
-    (1, "SKYBLOCK_ISLAND"),
+    (0, "SKYBLOCK_HUB"),
+    (0, "SKYBLOCK_ISLAND"),
     (0, "SKYBLOCK_SPIDERS_DEN"),
     (0, "SKYBLOCK_THE_END"),
     (0, "SKYBLOCK_CRIMSON_ISLE"),
@@ -43,7 +43,7 @@ ALL_SERVER_TYPES = [
     (0, "SKYBLOCK_JERRYS_WORKSHOP"),
     (0, "SKYBLOCK_BACKWATER_BAYOU"),
     (0, "SKYBLOCK_GALATEA"),
-    (3, "PROTOTYPE_LOBBY"),
+    (0, "PROTOTYPE_LOBBY"),
     (0, "BEDWARS_LOBBY"),
     (0, "BEDWARS_GAME"),
     (0, "BEDWARS_CONFIGURATOR"),
@@ -151,7 +151,7 @@ class FileManager:
             shutil.copy2(src, dst)
             logging.info(f"Copied {src} -> {dst}")
 
-    def setup_directories(self):
+    def setup_directories(self, skip_jar_copy=False):
         os.makedirs(self.proxy_dir, exist_ok=True)
         os.makedirs(os.path.join(self.proxy_dir, "plugins"), exist_ok=True)
         os.makedirs(os.path.join(self.proxy_dir, "configuration"), exist_ok=True)
@@ -162,12 +162,13 @@ class FileManager:
         os.makedirs(self.logs_dir, exist_ok=True)
 
 
-        proxy_jar_path = os.path.join(self.config_dir, "velocity.jar")
-        if os.path.exists(proxy_jar_path):
-            self.copy_file(
-                os.path.join(self.config_dir, "velocity.jar"),
-                os.path.join(self.proxy_dir, "velocity.jar")
-            )
+        if not skip_jar_copy:
+            proxy_jar_path = os.path.join(self.config_dir, "velocity.jar")
+            if os.path.exists(proxy_jar_path):
+                self.copy_file(
+                    os.path.join(self.config_dir, "velocity.jar"),
+                    os.path.join(self.proxy_dir, "velocity.jar")
+                )
         self.copy_file_if_not_exists(
             os.path.join(self.config_dir, "velocity.toml"),
             os.path.join(self.proxy_dir, "velocity.toml")
@@ -177,12 +178,13 @@ class FileManager:
             os.path.join(self.proxy_dir, "configuration", "resources.json")
         )
         
-        limbo_jar_path = os.path.join(self.config_dir, "NanoLimbo.jar")
-        if os.path.exists(limbo_jar_path):
-            self.copy_file(
-                os.path.join(self.config_dir, "NanoLimbo.jar"),
-                os.path.join(self.limbo_dir, "NanoLimbo.jar")
-            )
+        if not skip_jar_copy:
+            limbo_jar_path = os.path.join(self.config_dir, "NanoLimbo.jar")
+            if os.path.exists(limbo_jar_path):
+                self.copy_file(
+                    os.path.join(self.config_dir, "NanoLimbo.jar"),
+                    os.path.join(self.limbo_dir, "NanoLimbo.jar")
+                )
         
         proxy_plugin_path = os.path.join(self.config_dir, "SkyBlockProxy.jar")
         if os.path.exists(proxy_plugin_path):
@@ -243,6 +245,24 @@ class FileManager:
             os.makedirs(os.path.dirname(dst), exist_ok=True)
             shutil.copy2(src, dst)
             logging.info(f"Copied {src} -> {dst}")
+
+    def copy_forwarding_and_resources(self):
+        self.copy_file(
+            os.path.join(self.config_dir, "forwarding.secret"),
+            os.path.join(self.proxy_dir, "forwarding.secret")
+        )
+        self.copy_file(
+            os.path.join(self.config_dir, "resources.json"),
+            os.path.join(self.proxy_dir, "configuration", "resources.json")
+        )
+        self.copy_file(
+            os.path.join(self.config_dir, "resources.json"),
+            os.path.join(self.services_dir, "configuration", "resources.json")
+        )
+        self.copy_file(
+            os.path.join(self.config_dir, "resources.json"),
+            os.path.join(self.gameserver_dir, "configuration", "resources.json")
+        )
 
 
 class ServiceStarter:
@@ -407,7 +427,10 @@ def main():
 
         downloader.download_all()
 
-    file_mgr.setup_directories()
+    file_mgr.setup_directories(skip_jar_copy=skip_download)
+    
+    if skip_download:
+        file_mgr.copy_forwarding_and_resources()
     starter.start_proxy()
     starter.start_nanolimbo()
     starter.start_services()
