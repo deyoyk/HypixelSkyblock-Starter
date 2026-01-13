@@ -36,17 +36,48 @@ fi
 echo ""
 echo "Setting up Python virtual environment..."
 if [ ! -d "venv" ]; then
+    echo "Checking for venv module..."
+    if ! $PYTHON_CMD -m venv --help > /dev/null 2>&1; then
+        echo "✗ ERROR: venv module not available"
+        echo ""
+        echo "On Ubuntu/Debian, install python3-venv:"
+        echo "  sudo apt update && sudo apt install -y python3-venv"
+        echo ""
+        exit 1
+    fi
+    
+    echo "Creating virtual environment..."
     $PYTHON_CMD -m venv venv
+    if [ $? -ne 0 ]; then
+        echo "✗ ERROR: Failed to create virtual environment"
+        echo ""
+        echo "On Ubuntu/Debian, you may need:"
+        echo "  sudo apt update && sudo apt install -y python3-venv python3-full"
+        exit 1
+    fi
     echo "✓ Virtual environment created"
 fi
 
-source venv/bin/activate
+if [ ! -f "venv/bin/activate" ]; then
+    echo "✗ ERROR: Virtual environment activation script not found"
+    echo "Try removing venv directory and running again: rm -rf venv"
+    exit 1
+fi
+
+source venv/bin/activate || {
+    echo "✗ ERROR: Failed to activate virtual environment"
+    exit 1
+}
 echo "✓ Virtual environment activated"
 
 echo ""
 echo "Installing Python dependencies..."
 if [ -f "requirements.txt" ]; then
     pip install -r requirements.txt --quiet
+    if [ $? -ne 0 ]; then
+        echo "✗ ERROR: Failed to install Python dependencies"
+        exit 1
+    fi
     echo "✓ Python dependencies installed"
 else
     echo "⚠ Warning: requirements.txt not found, skipping Python dependencies"
@@ -97,8 +128,12 @@ cleanup() {
 trap cleanup SIGINT SIGTERM
 
 echo "Starting Python API server on port 5000..."
-source venv/bin/activate
-python api_server.py > api_server.log 2>&1 &
+if [ -f "venv/bin/activate" ]; then
+    source venv/bin/activate
+    venv/bin/python api_server.py > api_server.log 2>&1 &
+else
+    $PYTHON_CMD api_server.py > api_server.log 2>&1 &
+fi
 API_PID=$!
 echo "$API_PID" > "$API_PID_FILE"
 echo "✓ API server started (PID: $API_PID)"
