@@ -4,3 +4,4 @@ export const apiFetch = (path: string, options?: RequestInit) => {
   return fetch(`${API_URL}${path}`, options)
 }
 
+

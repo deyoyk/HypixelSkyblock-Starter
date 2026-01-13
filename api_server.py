@@ -10,8 +10,11 @@ import shutil
 import json
 import urllib.request
 import threading
+import yaml
+import toml
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+from flask_socketio import SocketIO, emit
 from enum import Enum
 
 class ServiceType(Enum):
@@ -151,7 +154,8 @@ def setup_logging():
     )
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/api/*": {"origins": "*", "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"], "allow_headers": ["Content-Type", "Authorization"]}})
+socketio = SocketIO(app, cors_allowed_origins="*", async_mode='threading')
 
 LOG_FILE = "api_server.log"
 process_manager = ProcessManager()
@@ -273,8 +277,81 @@ def get_server_status():
     
     return status
 
-@app.route('/api/servers', methods=['GET'])
+def broadcast_server_status():
+    try:
+        status = get_server_status()
+        result = {
+            "proxy": {"id": "proxy", "name": "Proxy", "type": "proxy", "running": status.get("Proxy", {}).get("running", False)},
+            "limbo": {"id": "nanolimbo", "name": "NanoLimbo", "type": "limbo", "running": status.get("NanoLimbo", {}).get("running", False)},
+            "services": [],
+            "gameservers": {}
+        }
+        
+        for s in ServiceType:
+            name = s.value.replace('.jar', '')
+            result["services"].append({
+                "id": name.lower(),
+                "name": name,
+                "type": "service",
+                "running": status.get(s.value, {}).get("running", False)
+            })
+        
+        for enabled, server in ALL_SERVER_TYPES:
+            server_name = server
+            server_lower = server.lower()
+            if server_lower not in result["gameservers"]:
+                result["gameservers"][server_lower] = {
+                    "name": server_name,
+                    "instances": []
+                }
+            
+            instances = []
+            for tracked_name in instance_tracker:
+                if tracked_name.startswith(server_name + "_"):
+                    try:
+                        instance_num = int(tracked_name.split("_", 1)[1])
+                        instances.append({
+                            "id": f"{server_lower}_{instance_num}",
+                            "instance": instance_num,
+                            "running": status.get(tracked_name, {}).get("running", False)
+                        })
+                    except ValueError:
+                        continue
+            
+            if not instances:
+                instances.append({
+                    "id": f"{server_lower}_0",
+                    "instance": 0,
+                    "running": False
+                })
+            
+            instances.sort(key=lambda x: x["instance"])
+            result["gameservers"][server_lower]["instances"] = instances
+        
+        socketio.emit('server_status', result)
+    except Exception as e:
+        logging.error(f"Error broadcasting server status: {str(e)}")
+
+@socketio.on('connect')
+def handle_connect():
+    emit('connected', {'data': 'Connected'})
+    broadcast_server_status()
+
+@app.after_request
+def after_request(response):
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+    response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+    return response
+
+@app.route('/api/health', methods=['GET'])
+def health_check():
+    return jsonify({"status": "ok", "message": "Server is running"}), 200
+
+@app.route('/api/servers', methods=['GET', 'OPTIONS'])
 def list_servers():
+    if request.method == 'OPTIONS':
+        return jsonify({}), 200
     try:
         status = get_server_status()
         result = {
@@ -348,6 +425,7 @@ def start_server(server_id):
                 return jsonify({"error": "Proxy is already running"}), 400
             starter.start_proxy()
             instance_tracker.add("Proxy")
+            threading.Timer(0.5, broadcast_server_status).start()
             return jsonify({"message": "Proxy started"})
         
         elif server_id == "nanolimbo":
@@ -355,6 +433,7 @@ def start_server(server_id):
                 return jsonify({"error": "NanoLimbo is already running"}), 400
             starter.start_nanolimbo()
             instance_tracker.add("NanoLimbo")
+            threading.Timer(0.5, broadcast_server_status).start()
             return jsonify({"message": "NanoLimbo started"})
         
         else:
@@ -377,6 +456,7 @@ def start_server(server_id):
                     )
                     process_manager.add(p, s.value)
                     instance_tracker.add(s.value)
+                    threading.Timer(0.5, broadcast_server_status).start()
                     return jsonify({"message": f"{s.value} started"})
             
             if not service_found:
@@ -401,6 +481,7 @@ def start_server(server_id):
                         instance_name = f"{server_name}_{instance}"
                         process_manager.add(p, instance_name)
                         instance_tracker.add(instance_name)
+                        threading.Timer(0.5, broadcast_server_status).start()
                         return jsonify({"message": f"{server_name} {instance} started"})
                 return jsonify({"error": "Server not found"}), 404
     
@@ -446,6 +527,7 @@ def stop_server(server_id):
                             p.kill()
                         process_manager.processes.remove((p, name))
                         found = True
+                        threading.Timer(0.5, broadcast_server_status).start()
                         return jsonify({"message": f"{name} stopped"})
         
         if not found:
@@ -507,6 +589,7 @@ def remove_instance(server_id):
             logging.info(f"Removed {target_name} from tracking")
         
         if removed_from_processes or removed_from_tracker:
+            threading.Timer(0.5, broadcast_server_status).start()
             return jsonify({"message": f"{target_name} removed"})
         else:
             return jsonify({"error": "Instance not found"}), 404
@@ -631,9 +714,119 @@ def download_all():
         logging.error(f"Error starting download: {str(e)}")
         return jsonify({"error": str(e)}), 500
 
+@app.route('/api/config/<config_name>', methods=['GET'])
+def get_config(config_name):
+    try:
+        config_paths = {
+            'settings.yml': os.path.join(base_dir, 'configuration', 'settings.yml'),
+            'velocity.toml': os.path.join(base_dir, 'configuration', 'velocity.toml'),
+            'resources.json': os.path.join(base_dir, 'configuration', 'resources.json'),
+            'forwarding.secret': os.path.join(base_dir, 'configuration', 'forwarding.secret')
+        }
+        
+        if config_name not in config_paths:
+            return jsonify({"error": "Invalid config name"}), 400
+        
+        config_path = config_paths[config_name]
+        
+        if not os.path.exists(config_path):
+            return jsonify({"error": "Config file not found"}), 404
+        
+        if config_name == 'forwarding.secret':
+            with open(config_path, 'r', encoding='utf-8') as f:
+                content = f.read().strip()
+            return jsonify({"content": content, "type": "text"})
+        
+        with open(config_path, 'r', encoding='utf-8') as f:
+            file_content = f.read()
+        
+        if config_name.endswith('.json'):
+            content = json.loads(file_content)
+            return jsonify({"content": content, "type": "json", "raw": file_content})
+        elif config_name.endswith('.toml'):
+            content = toml.loads(file_content)
+            return jsonify({"content": content, "type": "toml", "raw": file_content})
+        elif config_name.endswith('.yml') or config_name.endswith('.yaml'):
+            content = yaml.safe_load(file_content)
+            return jsonify({"content": content, "type": "yaml", "raw": file_content})
+        else:
+            return jsonify({"content": file_content, "type": "text"})
+    
+    except Exception as e:
+        logging.error(f"Error reading config {config_name}: {str(e)}")
+        return jsonify({"error": str(e)}), 500
+
+@app.route('/api/config/<config_name>', methods=['POST'])
+def save_config(config_name):
+    try:
+        config_paths = {
+            'settings.yml': os.path.join(base_dir, 'configuration', 'settings.yml'),
+            'velocity.toml': os.path.join(base_dir, 'configuration', 'velocity.toml'),
+            'resources.json': os.path.join(base_dir, 'configuration', 'resources.json'),
+            'forwarding.secret': os.path.join(base_dir, 'configuration', 'forwarding.secret')
+        }
+        
+        if config_name not in config_paths:
+            return jsonify({"error": "Invalid config name"}), 400
+        
+        config_path = config_paths[config_name]
+        data = request.get_json()
+        content = data.get('content')
+        field_path = data.get('field_path')
+        
+        if content is None:
+            return jsonify({"error": "Content is required"}), 400
+        
+        if config_name == 'forwarding.secret':
+            with open(config_path, 'w', encoding='utf-8') as f:
+                f.write(str(content).strip())
+            return jsonify({"message": "Config saved successfully"})
+        
+        if field_path:
+            with open(config_path, 'r', encoding='utf-8') as f:
+                if config_name.endswith('.json'):
+                    config_data = json.load(f)
+                elif config_name.endswith('.toml'):
+                    config_data = toml.load(f)
+                elif config_name.endswith('.yml') or config_name.endswith('.yaml'):
+                    config_data = yaml.safe_load(f)
+                else:
+                    return jsonify({"error": "Field editing not supported for this file type"}), 400
+            
+            keys = field_path.split('.')
+            current = config_data
+            for key in keys[:-1]:
+                if isinstance(current, dict):
+                    current = current[key]
+                else:
+                    return jsonify({"error": f"Invalid field path: {field_path}"}), 400
+            
+            if isinstance(current, dict):
+                current[keys[-1]] = content
+            else:
+                return jsonify({"error": f"Invalid field path: {field_path}"}), 400
+            
+            content = config_data
+        
+        with open(config_path, 'w', encoding='utf-8') as f:
+            if config_name.endswith('.json'):
+                json.dump(content, f, indent=2)
+            elif config_name.endswith('.toml'):
+                toml.dump(content, f)
+            elif config_name.endswith('.yml') or config_name.endswith('.yaml'):
+                yaml.dump(content, f, default_flow_style=False, sort_keys=False, allow_unicode=True)
+            else:
+                f.write(str(content))
+        
+        return jsonify({"message": "Config saved successfully"})
+    
+    except Exception as e:
+        logging.error(f"Error saving config {config_name}: {str(e)}")
+        return jsonify({"error": str(e)}), 500
+
 if __name__ == '__main__':
     atexit.register(process_manager.cleanup)
     signal.signal(signal.SIGINT, lambda *_: sys.exit(0))
     signal.signal(signal.SIGTERM, lambda *_: sys.exit(0))
-    app.run(host='0.0.0.0', port=5000, debug=False)
+    socketio.run(app, host='0.0.0.0', port=5000, debug=False, allow_unsafe_werkzeug=True)
 

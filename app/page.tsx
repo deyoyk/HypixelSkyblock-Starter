@@ -1,7 +1,9 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import { io, Socket } from 'socket.io-client'
 import LogViewer from './components/LogViewer'
+import ConfigEditor from './components/ConfigEditor'
 import { API_URL } from './lib/api'
 
 interface Instance {
@@ -34,25 +36,36 @@ export default function Home() {
   const [loading, setLoading] = useState(true)
   const [actionLoading, setActionLoading] = useState<string | null>(null)
   const [logViewer, setLogViewer] = useState<{ serverId: string; serverName: string } | null>(null)
+  const [configEditor, setConfigEditor] = useState<string | null>(null)
   const [selectedServices, setSelectedServices] = useState<Set<string>>(new Set())
   const [downloadStatus, setDownloadStatus] = useState<DownloadStatus>({ status: 'idle', progress: 0, current: '', errors: [] })
 
-  const fetchServers = async () => {
-    try {
-      const response = await fetch(`${API_URL}/api/servers`)
-      const serverData = await response.json()
-      setData(serverData)
-    } catch (error) {
-      console.error('Error fetching servers:', error)
-    } finally {
-      setLoading(false)
-    }
-  }
+  const socketRef = useRef<Socket | null>(null)
 
   useEffect(() => {
-    fetchServers()
-    const interval = setInterval(fetchServers, 2000)
-    return () => clearInterval(interval)
+    const socket = io(API_URL.replace('/api', ''), {
+      transports: ['websocket', 'polling']
+    })
+    
+    socket.on('connect', () => {
+      console.log('WebSocket connected')
+      setLoading(false)
+    })
+    
+    socket.on('server_status', (serverData: ServerData) => {
+      setData(serverData)
+      setLoading(false)
+    })
+    
+    socket.on('disconnect', () => {
+      console.log('WebSocket disconnected')
+    })
+    
+    socketRef.current = socket
+    
+    return () => {
+      socket.disconnect()
+    }
   }, [])
 
   useEffect(() => {
@@ -125,9 +138,7 @@ export default function Home() {
         method: 'POST'
       })
       const result = await response.json()
-      if (response.ok) {
-        setTimeout(fetchServers, 500)
-      } else {
+      if (!response.ok) {
         alert(result.error || 'Failed to start server')
       }
     } catch (error) {
@@ -144,9 +155,7 @@ export default function Home() {
         method: 'POST'
       })
       const result = await response.json()
-      if (response.ok) {
-        setTimeout(fetchServers, 500)
-      } else {
+      if (!response.ok) {
         alert(result.error || 'Failed to stop server')
       }
     } catch (error) {
@@ -170,9 +179,7 @@ export default function Home() {
         method: 'POST'
       })
       const result = await response.json()
-      if (response.ok) {
-        setTimeout(fetchServers, 500)
-      } else {
+      if (!response.ok) {
         alert(result.error || 'Failed to start instance')
       }
     } catch (error) {
@@ -190,9 +197,7 @@ export default function Home() {
         method: 'POST'
       })
       const result = await response.json()
-      if (response.ok) {
-        setTimeout(fetchServers, 500)
-      } else {
+      if (!response.ok) {
         alert(result.error || 'Failed to remove instance')
       }
     } catch (error) {
@@ -381,12 +386,84 @@ export default function Home() {
         )}
       </div>
 
+      <div style={{ marginBottom: '2rem' }}>
+        <h2 style={{ marginBottom: '1rem', fontSize: '1.5rem', color: '#333' }}>Configuration</h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '1rem' }}>
+          <button
+            onClick={() => setConfigEditor('settings.yml')}
+            style={{
+              padding: '1rem',
+              backgroundColor: '#fff',
+              border: '1px solid #ddd',
+              borderRadius: '8px',
+              cursor: 'pointer',
+              textAlign: 'left',
+              boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+            }}
+          >
+            <div style={{ fontWeight: 'bold', marginBottom: '0.25rem', color: '#333' }}>settings.yml</div>
+            <div style={{ fontSize: '0.875rem', color: '#666' }}>Limbo settings</div>
+          </button>
+          <button
+            onClick={() => setConfigEditor('velocity.toml')}
+            style={{
+              padding: '1rem',
+              backgroundColor: '#fff',
+              border: '1px solid #ddd',
+              borderRadius: '8px',
+              cursor: 'pointer',
+              textAlign: 'left',
+              boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+            }}
+          >
+            <div style={{ fontWeight: 'bold', marginBottom: '0.25rem', color: '#333' }}>velocity.toml</div>
+            <div style={{ fontSize: '0.875rem', color: '#666' }}>Proxy settings</div>
+          </button>
+          <button
+            onClick={() => setConfigEditor('resources.json')}
+            style={{
+              padding: '1rem',
+              backgroundColor: '#fff',
+              border: '1px solid #ddd',
+              borderRadius: '8px',
+              cursor: 'pointer',
+              textAlign: 'left',
+              boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+            }}
+          >
+            <div style={{ fontWeight: 'bold', marginBottom: '0.25rem', color: '#333' }}>resources.json</div>
+            <div style={{ fontSize: '0.875rem', color: '#666' }}>Resource settings</div>
+          </button>
+          <button
+            onClick={() => setConfigEditor('forwarding.secret')}
+            style={{
+              padding: '1rem',
+              backgroundColor: '#fff',
+              border: '1px solid #ddd',
+              borderRadius: '8px',
+              cursor: 'pointer',
+              textAlign: 'left',
+              boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+            }}
+          >
+            <div style={{ fontWeight: 'bold', marginBottom: '0.25rem', color: '#333' }}>forwarding.secret</div>
+            <div style={{ fontSize: '0.875rem', color: '#666' }}>Forwarding secret</div>
+          </button>
+        </div>
+      </div>
+
       {logViewer && (
         <LogViewer
           serverId={logViewer.serverId}
           serverName={logViewer.serverName}
           isOpen={true}
           onClose={() => setLogViewer(null)}
+        />
+      )}
+      {configEditor && (
+        <ConfigEditor
+          configName={configEditor}
+          onClose={() => setConfigEditor(null)}
         />
       )}
     </div>
