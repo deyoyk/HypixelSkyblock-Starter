@@ -23,7 +23,7 @@ class ServiceType(Enum):
     FRIEND = "ServiceFriend.jar"
     ITEM_TRACKER = "ServiceItemTracker.jar"
     ORCHESTRATOR = "ServiceOrchestrator.jar"
-    PARTY = "ServiceParty.jar"
+    #PARTY = "ServiceParty.jar"
 
 
 ALL_SERVER_TYPES = [
@@ -43,8 +43,8 @@ ALL_SERVER_TYPES = [
     (0, "SKYBLOCK_JERRYS_WORKSHOP"),
     (0, "SKYBLOCK_BACKWATER_BAYOU"),
     (0, "SKYBLOCK_GALATEA"),
-    (0, "PROTOTYPE_LOBBY"),
-    (0, "BEDWARS_LOBBY"),
+    (1, "PROTOTYPE_LOBBY"),
+    (1, "BEDWARS_LOBBY"),
     (0, "BEDWARS_GAME"),
     (0, "BEDWARS_CONFIGURATOR"),
     (0, "MURDER_MYSTERY_LOBBY"),
@@ -250,6 +250,10 @@ class FileManager:
         self.copy_file(
             os.path.join(self.config_dir, "forwarding.secret"),
             os.path.join(self.proxy_dir, "forwarding.secret")
+        )
+        self.copy_file(
+            os.path.join(self.config_dir, "velocity.toml"),
+            os.path.join(self.proxy_dir, "velocity.toml")
         )
         self.copy_file(
             os.path.join(self.config_dir, "resources.json"),
