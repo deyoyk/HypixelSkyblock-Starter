@@ -6,3 +6,6 @@ out/
 .DS_Store
 api_server.pid
 next_server.pid
+venv/
+__pycache__/
+*.pyc

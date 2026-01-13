@@ -34,9 +34,19 @@ if ! command -v npm &> /dev/null; then
 fi
 
 echo ""
+echo "Setting up Python virtual environment..."
+if [ ! -d "venv" ]; then
+    $PYTHON_CMD -m venv venv
+    echo "✓ Virtual environment created"
+fi
+
+source venv/bin/activate
+echo "✓ Virtual environment activated"
+
+echo ""
 echo "Installing Python dependencies..."
 if [ -f "requirements.txt" ]; then
-    $PYTHON_CMD -m pip install -r requirements.txt --quiet
+    pip install -r requirements.txt --quiet
     echo "✓ Python dependencies installed"
 else
     echo "⚠ Warning: requirements.txt not found, skipping Python dependencies"
@@ -79,6 +89,7 @@ cleanup() {
     fi
     pkill -f "python.*api_server.py" 2>/dev/null || true
     pkill -f "next dev" 2>/dev/null || true
+    deactivate 2>/dev/null || true
     echo "Servers stopped."
     exit 0
 }
@@ -86,7 +97,8 @@ cleanup() {
 trap cleanup SIGINT SIGTERM
 
 echo "Starting Python API server on port 5000..."
-$PYTHON_CMD api_server.py > api_server.log 2>&1 &
+source venv/bin/activate
+python api_server.py > api_server.log 2>&1 &
 API_PID=$!
 echo "$API_PID" > "$API_PID_FILE"
 echo "✓ API server started (PID: $API_PID)"
