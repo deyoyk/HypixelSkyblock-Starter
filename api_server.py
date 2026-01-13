@@ -344,8 +344,10 @@ def after_request(response):
     response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
     return response
 
-@app.route('/api/health', methods=['GET'])
+@app.route('/api/health', methods=['GET', 'OPTIONS'])
 def health_check():
+    if request.method == 'OPTIONS':
+        return jsonify({}), 200
     return jsonify({"status": "ok", "message": "Server is running"}), 200
 
 @app.route('/api/servers', methods=['GET', 'OPTIONS'])
@@ -415,8 +417,10 @@ def list_servers():
             "gameservers": {}
         }), 500
 
-@app.route('/api/servers/<server_id>/start', methods=['POST'])
+@app.route('/api/servers/<server_id>/start', methods=['POST', 'OPTIONS'])
 def start_server(server_id):
+    if request.method == 'OPTIONS':
+        return jsonify({}), 200
     try:
         status = get_server_status()
         
@@ -489,8 +493,17 @@ def start_server(server_id):
         logging.error(f"Error starting server {server_id}: {str(e)}")
         return jsonify({"error": str(e)}), 500
 
-@app.route('/api/servers/<server_id>/stop', methods=['POST'])
+@app.route('/api', methods=['GET', 'OPTIONS'])
+@app.route('/api/', methods=['GET', 'OPTIONS'])
+def index():
+    if request.method == 'OPTIONS':
+        return jsonify({}), 200
+    return jsonify({"message": "Hello, World!"})
+
+@app.route('/api/servers/<server_id>/stop', methods=['POST', 'OPTIONS'])
 def stop_server(server_id):
+    if request.method == 'OPTIONS':
+        return jsonify({}), 200
     try:
         status = get_server_status()
         found = False
@@ -537,8 +550,10 @@ def stop_server(server_id):
         logging.error(f"Error stopping server {server_id}: {str(e)}")
         return jsonify({"error": str(e)}), 500
 
-@app.route('/api/servers/<server_id>/remove', methods=['POST'])
+@app.route('/api/servers/<server_id>/remove', methods=['POST', 'OPTIONS'])
 def remove_instance(server_id):
+    if request.method == 'OPTIONS':
+        return jsonify({}), 200
     try:
         target_name = None
         
@@ -598,8 +613,10 @@ def remove_instance(server_id):
         logging.error(f"Error removing instance {server_id}: {str(e)}")
         return jsonify({"error": str(e)}), 500
 
-@app.route('/api/status', methods=['GET'])
+@app.route('/api/status', methods=['GET', 'OPTIONS'])
 def get_status():
+    if request.method == 'OPTIONS':
+        return jsonify({}), 200
     return jsonify(get_server_status())
 
 def get_log_file_path(server_id):
@@ -621,8 +638,10 @@ def get_log_file_path(server_id):
     
     return None
 
-@app.route('/api/servers/<server_id>/logs', methods=['GET'])
+@app.route('/api/servers/<server_id>/logs', methods=['GET', 'OPTIONS'])
 def get_logs(server_id):
+    if request.method == 'OPTIONS':
+        return jsonify({}), 200
     try:
         log_path = get_log_file_path(server_id)
         if not log_path or not os.path.exists(log_path):
@@ -648,8 +667,10 @@ def get_logs(server_id):
         logging.error(f"Error reading logs for {server_id}: {str(e)}")
         return jsonify({"error": str(e)}), 500
 
-@app.route('/api/servers/<server_id>/logs/stream', methods=['GET'])
+@app.route('/api/servers/<server_id>/logs/stream', methods=['GET', 'OPTIONS'])
 def stream_logs(server_id):
+    if request.method == 'OPTIONS':
+        return jsonify({}), 200
     try:
         log_path = get_log_file_path(server_id)
         if not log_path or not os.path.exists(log_path):
@@ -670,13 +691,17 @@ def stream_logs(server_id):
         logging.error(f"Error streaming logs for {server_id}: {str(e)}")
         return jsonify({"error": str(e)}), 500
 
-@app.route('/api/download/status', methods=['GET'])
+@app.route('/api/download/status', methods=['GET', 'OPTIONS'])
 def get_download_status():
+    if request.method == 'OPTIONS':
+        return jsonify({}), 200
     with download_lock:
         return jsonify(download_status)
 
-@app.route('/api/download', methods=['POST'])
+@app.route('/api/download', methods=['POST', 'OPTIONS'])
 def download_files():
+    if request.method == 'OPTIONS':
+        return jsonify({}), 200
     try:
         data = request.get_json()
         force = data.get('force', False)
@@ -695,8 +720,10 @@ def download_files():
         logging.error(f"Error starting download: {str(e)}")
         return jsonify({"error": str(e)}), 500
 
-@app.route('/api/download/all', methods=['POST'])
+@app.route('/api/download/all', methods=['POST', 'OPTIONS'])
 def download_all():
+    if request.method == 'OPTIONS':
+        return jsonify({}), 200
     try:
         data = request.get_json()
         force = data.get('force', False)
@@ -714,8 +741,10 @@ def download_all():
         logging.error(f"Error starting download: {str(e)}")
         return jsonify({"error": str(e)}), 500
 
-@app.route('/api/config/<config_name>', methods=['GET'])
+@app.route('/api/config/<config_name>', methods=['GET', 'OPTIONS'])
 def get_config(config_name):
+    if request.method == 'OPTIONS':
+        return jsonify({}), 200
     try:
         config_paths = {
             'settings.yml': os.path.join(base_dir, 'configuration', 'settings.yml'),
@@ -756,8 +785,10 @@ def get_config(config_name):
         logging.error(f"Error reading config {config_name}: {str(e)}")
         return jsonify({"error": str(e)}), 500
 
-@app.route('/api/config/<config_name>', methods=['POST'])
+@app.route('/api/config/<config_name>', methods=['POST', 'OPTIONS'])
 def save_config(config_name):
+    if request.method == 'OPTIONS':
+        return jsonify({}), 200
     try:
         config_paths = {
             'settings.yml': os.path.join(base_dir, 'configuration', 'settings.yml'),

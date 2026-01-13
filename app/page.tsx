@@ -71,7 +71,15 @@ export default function Home() {
   useEffect(() => {
     const fetchDownloadStatus = async () => {
       try {
-        const response = await fetch(`${API_URL}/api/download/status`)
+        const response = await fetch(`${API_URL}/api/download/status`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`)
+        }
         const status = await response.json()
         setDownloadStatus(status)
       } catch (error) {
