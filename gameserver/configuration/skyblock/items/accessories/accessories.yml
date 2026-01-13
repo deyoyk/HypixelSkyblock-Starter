@@ -1,0 +1,83 @@
+items:
+  - id: BITS_TALISMAN
+    material: PLAYER_HEAD
+    rarity: COMMON
+    components:
+      - id: SKULL_HEAD
+        texture: 2ebadb1725aa85bb2810d0b73bf7cd74db3d9d8fc61c4cf9e543dbcc199187cc
+      - id: TALISMAN
+
+  - id: FARMING_TALISMAN
+    material: PLAYER_HEAD
+    rarity: COMMON
+    default_statistics:
+      speed: 10.0
+    components:
+      - id: SKULL_HEAD
+        texture: 9af328c87b068509aca9834eface197705fe5d4f0871731b7b21cd99b9fddc
+      - id: TALISMAN
+      - id: DEFAULT_CRAFTABLE
+        default-craftable: false
+        recipes:
+          - type: SHAPED
+            recipe-type: FARMING
+            pattern:
+              - ABA
+              - BAB
+              - ABA
+            ingredients:
+              A:
+                type: WHEAT
+                amount: 8
+              B:
+                type: WHEAT_SEEDS
+                amount: 1
+            result:
+              type: FARMING_TALISMAN
+              amount: 1
+
+  - id: FIRE_TALISMAN
+    material: PLAYER_HEAD
+    rarity: COMMON
+    components:
+      - id: SKULL_HEAD
+        texture: 9af328c87b068509aca9834eface197705fe5d4f0871731b7b21cd99b9fddc
+      - id: TALISMAN
+
+  - id: LAVA_TALISMAN
+    material: PLAYER_HEAD
+    rarity: COMMON
+    components:
+      - id: SKULL_HEAD
+        texture: c078f3f24b1760f9d4abb0851eb8f6c7dfff8855708e6049d15dc02042ba8436
+      - id: TALISMAN
+
+  - id: MINE_AFFINITY_TALISMAN
+    material: PLAYER_HEAD
+    rarity: COMMON
+    default_statistics:
+      speed: 10.0
+    components:
+      - id: SKULL_HEAD
+        texture: d9563fdc4acab6db324b21bc43b238fe465e530a6327e7eef11d2d0c4ea
+      - id: TALISMAN
+
+  - id: POTATO_TALISMAN
+    material: PLAYER_HEAD
+    rarity: COMMON
+    default_statistics:
+      speed: 1.0
+    components:
+      - id: SKULL_HEAD
+        texture: 318476e3cf0d5fc8ab1761065cf0e372b11004ed4c97156396e17c869b4aa389
+      - id: TALISMAN
+
+  - id: VILLAGE_AFFINITY_TALISMAN
+    material: PLAYER_HEAD
+    rarity: COMMON
+    default_statistics:
+      speed: 10.0
+    components:
+      - id: SKULL_HEAD
+        texture: 9c11d6c79b8a1f18902d783cdda4bdfb9d47337b73791028a126a6e6cf101def
+      - id: TALISMAN

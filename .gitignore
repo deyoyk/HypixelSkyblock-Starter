@@ -1,0 +1,8 @@
+node_modules/
+.next/
+out/
+*.log
+.env*.local
+.DS_Store
+api_server.pid
+next_server.pid

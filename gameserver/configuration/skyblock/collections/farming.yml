@@ -1,0 +1,1118 @@
+name: Farming
+displayIcon: GOLDEN_HOE
+collections:
+- itemType: WHEAT
+  rewards:
+  - amount: 50
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: WHEAT_MINION
+  - amount: 100
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: CUSTOM_AWARD
+      data:
+        customAward: HARVESTING_DISCOUNT
+  - amount: 250
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FARM_SUIT_HELMET
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FARM_SUIT_CHESTPLATE
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FARM_SUIT_LEGGINGS
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FARM_SUIT_BOOTS
+  - amount: 500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FARMING_TALISMAN
+  - amount: 1000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_BREAD
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_WHEAT
+  - amount: 2500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 10000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 15000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 25000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 50000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 100000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_HAY_BALE
+- itemType: CARROT
+  rewards:
+  - amount: 100
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: CARROT_MINION
+  - amount: 250
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 1750
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_CARROT
+  - amount: 5000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 10000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 25000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_GOLDEN_CARROT
+  - amount: 50000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 100000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+- itemType: CACTUS
+  rewards:
+  - amount: 100
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: CACTUS_MINION
+  - amount: 250
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 1000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_CACTUS_GREEN
+  - amount: 2500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 5000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 10000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 25000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_CACTUS
+  - amount: 50000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+- itemType: COCOA_BEANS
+  rewards:
+  - amount: 75
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: COCOA_BEANS_MINION
+  - amount: 200
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 2000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_COCOA_BEANS
+  - amount: 5000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 10000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_COOKIE
+  - amount: 20000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 50000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 100000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+- itemType: FEATHER
+  rewards:
+  - amount: 50
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 100
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 250
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 1000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FEATHER_TALISMAN
+  - amount: 2500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_FEATHER
+  - amount: 5000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 10000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FEATHER_RING
+  - amount: 25000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 50000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: FEATHER_ARTIFACT
+- itemType: LEATHER
+  rewards:
+  - amount: 50
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: COW_MINION
+  - amount: 100
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 250
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: SMALL_BACKPACK
+  - amount: 1000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_RAW_BEEF
+  - amount: 2500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: MEDIUM_BACKPACK
+  - amount: 5000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_LEATHER
+  - amount: 10000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 25000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: LARGE_BACKPACK
+  - amount: 50000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 100000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: GREATER_BACKPACK
+- itemType: MELON_SLICE
+  rewards:
+  - amount: 250
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: MELON_MINION
+  - amount: 500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 1250
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 5000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_MELON
+  - amount: 15000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_GLISTERING_MELON
+  - amount: 25000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_MELON_BLOCK
+  - amount: 50000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 100000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 250000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+- itemType: RED_MUSHROOM
+  rewards:
+  - amount: 50
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: MUSHROOM_MINION
+  - amount: 100
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 250
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: MUSHROOM_HELMET
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: MUSHROOM_CHESTPLATE
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: MUSHROOM_LEGGINGS
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: MUSHROOM_BOOTS
+  - amount: 1000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 2500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 5000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_BROWN_MUSHROOM
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_RED_MUSHROOM
+  - amount: 10000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 25000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_BROWN_MUSHROOM_BLOCK
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_RED_MUSHROOM_BLOCK
+  - amount: 50000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+- itemType: MUTTON
+  rewards:
+  - amount: 50
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: SHEEP_MINION
+  - amount: 100
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 250
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 1000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 2500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_MUTTON
+  - amount: 5000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 10000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 25000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_COOKED_MUTTON
+  - amount: 50000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 100000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+- itemType: NETHER_WART
+  rewards:
+  - amount: 50
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: NETHER_WART_MINION
+  - amount: 100
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: CUSTOM_AWARD
+      data:
+        customAward: POTION_BAG
+  - amount: 250
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: POTION_AFFINITY_TALISMAN
+  - amount: 1000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_NETHER_WART
+  - amount: 2500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: CUSTOM_AWARD
+      data:
+        customAward: POTION_BAG_UPGRADE_1
+  - amount: 5000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 10000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: RING_POTION_AFFINITY
+  - amount: 25000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: CUSTOM_AWARD
+      data:
+        customAward: POTION_BAG_UPGRADE_2
+  - amount: 50000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ARTIFACT_POTION_AFFINITY
+  - amount: 75000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: CUSTOM_AWARD
+      data:
+        customAward: POTION_BAG_UPGRADE_3
+  - amount: 100000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: MUTANT_NETHER_WART
+  - amount: 250000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: CUSTOM_AWARD
+      data:
+        customAward: POTION_BAG_UPGRADE_4
+- itemType: POTATO
+  rewards:
+  - amount: 100
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: POTATO_MINION
+  - amount: 200
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 1750
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_POTATO
+  - amount: 5000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 10000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 25000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_BAKED_POTATO
+  - amount: 50000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: HOT_POTATO_BOOK
+  - amount: 100000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+- itemType: PUMPKIN
+  rewards:
+  - amount: 40
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: PUMPKIN_MINION
+  - amount: 100
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: PUMPKIN_HELMET
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: PUMPKIN_CHESTPLATE
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: PUMPKIN_LEGGINGS
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: PUMPKIN_BOOTS
+  - amount: 250
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_PUMPKIN
+  - amount: 1000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: CUSTOM_AWARD
+      data:
+        customAward: CUBISM_DISCOUNT
+  - amount: 2500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 5000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 10000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 25000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 50000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 100000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: POLISHED_PUMPKIN
+  - amount: 250000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+- itemType: CHICKEN
+  rewards:
+  - amount: 50
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: CHICKEN_MINION
+  - amount: 100
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 250
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 1000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_RAW_CHICKEN
+  - amount: 2500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_EGG
+  - amount: 5000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 10000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_CAKE
+  - amount: 25000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 50000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: SUPER_ENCHANTED_EGG
+  - amount: 100000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: OMEGA_ENCHANTED_EGG
+- itemType: PORKCHOP
+  rewards:
+  - amount: 50
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: PIG_MINION
+  - amount: 100
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 250
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 1000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_PORK
+  - amount: 2500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 5000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 10000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_GRILLED_PORK
+  - amount: 25000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 50000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+- itemType: RABBIT
+  rewards:
+  - amount: 50
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: RABBIT_MINION
+  - amount: 100
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 250
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 1000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_RABBIT_FOOT
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_RAW_RABBIT
+  - amount: 2500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: CUSTOM_AWARD
+      data:
+        customAward: LUCK_DISCOUNT
+  - amount: 5000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_RABBIT_HIDE
+  - amount: 10000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 25000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 50000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+- itemType: WHEAT_SEEDS
+  rewards:
+  - amount: 50
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 100
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 250
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_SEEDS
+  - amount: 1000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 2500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 5000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 25000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: BOX_OF_SEEDS
+- itemType: SUGAR_CANE
+  rewards:
+  - amount: 100
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: SUGAR_CANE_MINION
+  - amount: 250
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: SPEED_TALISMAN
+  - amount: 500
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 1000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_SUGAR
+  - amount: 2000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: SPEED_RING
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_PAPER
+  - amount: 5000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 10000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+  - amount: 20000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: ENCHANTED_SUGAR_CANE
+    - type: RECIPE_UNLOCK
+      data:
+        unlockedItemType: SPEED_ARTIFACT
+  - amount: 50000
+    rewards:
+    - type: XP
+      data:
+        xp: 4
