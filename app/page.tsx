@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import LogViewer from './components/LogViewer'
+import { API_URL } from './lib/api'
 
 interface Instance {
   id: string
@@ -38,7 +39,7 @@ export default function Home() {
 
   const fetchServers = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/servers')
+      const response = await fetch(`${API_URL}/api/servers`)
       const serverData = await response.json()
       setData(serverData)
     } catch (error) {
@@ -57,7 +58,7 @@ export default function Home() {
   useEffect(() => {
     const fetchDownloadStatus = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/download/status')
+        const response = await fetch(`${API_URL}/api/download/status`)
         const status = await response.json()
         setDownloadStatus(status)
       } catch (error) {
@@ -72,7 +73,7 @@ export default function Home() {
 
   const handleDownload = async (force: boolean = false) => {
     try {
-      const response = await fetch('http://localhost:5000/api/download/all', {
+      const response = await fetch(`${API_URL}/api/download/all`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ force })
@@ -93,7 +94,7 @@ export default function Home() {
     }
     
     try {
-      const response = await fetch('http://localhost:5000/api/download', {
+      const response = await fetch(`${API_URL}/api/download`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ force, selected: Array.from(selectedServices) })
@@ -120,7 +121,7 @@ export default function Home() {
   const handleStart = async (serverId: string) => {
     setActionLoading(serverId)
     try {
-      const response = await fetch(`http://localhost:5000/api/servers/${serverId}/start`, {
+      const response = await fetch(`${API_URL}/api/servers/${serverId}/start`, {
         method: 'POST'
       })
       const result = await response.json()
@@ -139,7 +140,7 @@ export default function Home() {
   const handleStop = async (serverId: string) => {
     setActionLoading(serverId)
     try {
-      const response = await fetch(`http://localhost:5000/api/servers/${serverId}/stop`, {
+      const response = await fetch(`${API_URL}/api/servers/${serverId}/stop`, {
         method: 'POST'
       })
       const result = await response.json()
@@ -165,7 +166,7 @@ export default function Home() {
     
     setActionLoading(newInstanceId)
     try {
-      const response = await fetch(`http://localhost:5000/api/servers/${newInstanceId}/start`, {
+      const response = await fetch(`${API_URL}/api/servers/${newInstanceId}/start`, {
         method: 'POST'
       })
       const result = await response.json()
@@ -185,7 +186,7 @@ export default function Home() {
     const instanceId = `${serverName.toLowerCase()}_${instanceNum}`
     setActionLoading(instanceId)
     try {
-      const response = await fetch(`http://localhost:5000/api/servers/${instanceId}/remove`, {
+      const response = await fetch(`${API_URL}/api/servers/${instanceId}/remove`, {
         method: 'POST'
       })
       const result = await response.json()

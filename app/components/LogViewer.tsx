@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef, useCallback } from 'react'
+import { API_URL } from '../lib/api'
 
 interface LogViewerProps {
   serverId: string
@@ -21,7 +22,7 @@ export default function LogViewer({ serverId, serverName, isOpen, onClose }: Log
     if (!isOpen) return
     setLoading(true)
     try {
-      const response = await fetch(`http://localhost:5000/api/servers/${serverId}/logs?lines=${lines}&tail=true`)
+      const response = await fetch(`${API_URL}/api/servers/${serverId}/logs?lines=${lines}&tail=true`)
       const data = await response.json()
       if (response.ok) {
         setLogs(data.logs || [])

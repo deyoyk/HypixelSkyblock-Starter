@@ -1,0 +1,20 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y \
+    openjdk-25-jre \
+    || (apt-get install -y openjdk-25-jre-headless ) \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY api_server.py .
+
+RUN mkdir -p logs services gameserver proxy limbo configuration downloads
+
+EXPOSE 5000
+
+CMD ["python", "api_server.py"]
+

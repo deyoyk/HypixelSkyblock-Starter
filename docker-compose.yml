@@ -1,0 +1,41 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    container_name: server-manager-api
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./logs:/app/logs
+      - ./services:/app/services
+      - ./gameserver:/app/gameserver
+      - ./proxy:/app/proxy
+      - ./limbo:/app/limbo
+      - ./configuration:/app/configuration
+      - ./downloads:/app/downloads
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+    networks:
+      - server-network
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+    container_name: server-manager-web
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:5000
+    depends_on:
+      - api
+    restart: unless-stopped
+    networks:
+      - server-network
+
+networks:
+  server-network:
+    driver: bridge
+

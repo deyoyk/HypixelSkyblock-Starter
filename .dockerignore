@@ -1,0 +1,16 @@
+node_modules
+.next
+venv
+__pycache__
+*.pyc
+*.log
+.git
+.gitignore
+*.md
+.DS_Store
+.env*.local
+api_server.pid
+next_server.pid
+logs/*
+!logs/.gitkeep
+
