@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { API_URL } from '../lib/api';
 
 interface ConfigEditorProps {
   configName: string;
@@ -14,8 +15,6 @@ export default function ConfigEditor({ configName, onClose }: ConfigEditorProps)
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [configType, setConfigType] = useState<string>('');
-
-  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
 
   useEffect(() => {
     fetchConfig();
